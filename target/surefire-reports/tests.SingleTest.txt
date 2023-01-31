@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: tests.SingleTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 12.195 s <<< FAILURE! - in tests.SingleTest
+tests.SingleTest.singleTest(Browser)[1]  Time elapsed: 9.566 s  <<< ERROR!
+com.microsoft.playwright.PlaywrightException: Playwright connection closed
+	at tests.SingleTest.singleTest(SingleTest.java:20)
+
+tests.SingleTest.singleTest(Browser)[2]  Time elapsed: 11.884 s  <<< ERROR!
+com.microsoft.playwright.PlaywrightException: Playwright connection closed
+	at tests.SingleTest.singleTest(SingleTest.java:20)
+
+tests.SingleTest.singleTest(Browser)[3]  Time elapsed: 12.176 s  <<< ERROR!
+com.microsoft.playwright.PlaywrightException: Playwright connection closed
+	at tests.SingleTest.singleTest(SingleTest.java:20)
+
