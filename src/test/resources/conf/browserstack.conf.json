@@ -26,13 +26,15 @@
       "os": "OS X",
       "os_version": "Monterey",
       "name": "Test on Safari",
-      "browser": "playwright-webkit"
+      "browser": "playwright-webkit",
+      "browser_version": "latest"
     },
     {
       "os": "OS X",
       "os_version": "Ventura",
       "name": "Test on Bundled Firefox",
-      "browser": "playwright-firefox"
+      "browser": "playwright-firefox",
+      "browser_version": "latest"
     }
   ]
 }
