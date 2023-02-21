@@ -2,18 +2,9 @@ package tests;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.SessionId;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import runners.PlaywrightTest;
 
-import java.time.Duration;
-
-public class SingleTest {
+public class SampleTest {
 
     @PlaywrightTest
     void singleTest(Browser browser) {
