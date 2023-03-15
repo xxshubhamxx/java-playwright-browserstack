@@ -78,7 +78,7 @@
                                 <include>${tests.single}</include>
                             </includes>
                             <systemPropertyVariables>
-                                <config>parallel.conf.json</config>
+                                <config>browserstack.conf.json</config>
                                 <local>true</local>
                             </systemPropertyVariables>
                             <properties>
@@ -108,7 +108,7 @@
                                 <include>${tests.single}</include>
                             </includes>
                             <systemPropertyVariables>
-                                <config>parallel.conf.json</config>
+                                <config>browserstack.conf.json</config>
                                 <local>false</local>
                             </systemPropertyVariables>
                             <properties>

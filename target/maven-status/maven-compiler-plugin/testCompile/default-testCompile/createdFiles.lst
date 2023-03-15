@@ -1,4 +1,4 @@
-tests/SingleTest.class
+tests/SampleTest.class
 runners/BstackRunner$1$1.class
 runners/BstackRunner.class
 runners/PlaywrightTest.class

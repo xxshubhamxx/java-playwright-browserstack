@@ -9,6 +9,8 @@ import org.junit.jupiter.api.extension.*;
 
 import com.microsoft.playwright.*;
 import com.google.gson.JsonObject;
+
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import org.openqa.selenium.MutableCapabilities;
@@ -112,15 +114,16 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
                     @Override
                     public Object resolveParameter(ParameterContext parameterContext,
                                                    ExtensionContext extensionContext) {
-                        try(Playwright playwright = Playwright.create()) {
-                            BrowserType browserType = playwright.chromium();
-                            String caps = URLEncoder.encode(capabilitiesObject.toString(), "utf-8");
-                            System.out.println(capabilitiesObject.toString());
-                            String ws_endpoint = wss + "?caps=" + caps;
-                            browser = browserType.connect(ws_endpoint);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        Playwright playwright = Playwright.create();
+                        BrowserType browserType = playwright.chromium();
+                        String caps = null;
+                        try {
+                            caps = URLEncoder.encode(capabilitiesObject.toString(), "utf-8");
+                        } catch (UnsupportedEncodingException e) {
+                            throw new RuntimeException(e);
                         }
+                        String ws_endpoint = wss + "?caps=" + caps;
+                        browser = browserType.connect(ws_endpoint);
                         return browser;
                     }
                 });
