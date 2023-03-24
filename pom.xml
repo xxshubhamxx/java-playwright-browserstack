@@ -15,7 +15,7 @@
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <browserstack-local-java>1.0.6</browserstack-local-java>
         <httpclient>4.5.13</httpclient>
-        <parallel.count>5</parallel.count>
+        <parallel.count>3</parallel.count>
         <tests.single>**/tests.SampleTest.java</tests.single>
     </properties>
     <dependencies>

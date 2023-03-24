@@ -5,3 +5,4 @@ runners/PlaywrightTest.class
 runners/BstackRunner$1.class
 utils/SetupLocalTesting.class
 utils/SetupLocalTesting$Closer.class
+tests/SampleTest$1.class

@@ -7,12 +7,7 @@
     "build": "browserstack-build-1",
     "buildTag": "Regression",
     "browserstack.debug": "true",
-    "browserstack.console": "info",
-    "browserstack.networkLogs": "true",
-    "browserstack.networkLogsOptions":
-    {
-      "captureContent": "true"
-    }
+    "browserstack.console": "info"
   },
   "environments": [
     {

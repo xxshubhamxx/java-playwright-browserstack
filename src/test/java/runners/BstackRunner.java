@@ -83,7 +83,7 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
                 platform.putAll(commonCapsConfig);
                 platform.put("browserstack.username", username);
                 platform.put("browserstack.accessKey", accessKey);
-                if(System.getProperty("local") == "true") {
+                if(Objects.equals(System.getProperty("local"), "true")) {
                     platform.put("browserstack.local", "true");
                     HashMap<String, String> localOptions = new HashMap<>();
                     localOptions.put("key", accessKey);
