@@ -114,6 +114,10 @@ public class BstackRunner implements TestTemplateInvocationContextProvider {
                     @Override
                     public Object resolveParameter(ParameterContext parameterContext,
                                                    ExtensionContext extensionContext) {
+                        String testName = extensionContext.getTestMethod().get().getName();
+                        testName += " [" + capabilitiesObject.get("os") + " " + capabilitiesObject.get("os_version");
+                        testName += " - " + capabilitiesObject.get("browser") + " " + capabilitiesObject.get("browser_version") + "]";
+                        capabilitiesObject.put("name", testName);
                         Playwright playwright = Playwright.create();
                         BrowserType browserType = playwright.chromium();
                         String caps = null;

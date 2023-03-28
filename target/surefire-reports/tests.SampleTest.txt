@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tests.SampleTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.542 s - in tests.SampleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.758 s - in tests.SampleTest

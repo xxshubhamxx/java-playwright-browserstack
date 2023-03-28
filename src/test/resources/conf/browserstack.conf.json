@@ -13,21 +13,18 @@
     {
       "os": "Windows",
       "os_version": "10",
-      "name": "Test on Chrome latest",
       "browser": "chrome",
       "browser_version": "latest"
     },
     {
       "os": "OS X",
       "os_version": "Monterey",
-      "name": "Test on Safari",
       "browser": "playwright-webkit",
       "browser_version": "latest"
     },
     {
       "os": "OS X",
       "os_version": "Ventura",
-      "name": "Test on Bundled Firefox",
       "browser": "playwright-firefox",
       "browser_version": "latest"
     }

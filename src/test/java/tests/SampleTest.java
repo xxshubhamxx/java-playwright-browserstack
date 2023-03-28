@@ -7,11 +7,8 @@ import runners.PlaywrightTest;
 public class SampleTest {
 
     @PlaywrightTest
-    void singleTest(Browser browser) {
+    void sampleTest(Browser browser) {
         Page page = browser.newPage();
-        // Update Session Name
-        String sessionName = new Object(){}.getClass().getEnclosingMethod().getName();
-        page.evaluate("_ => {}", "browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\": \"" + sessionName + "\"}}");
         try {
             page.navigate("https://bstackdemo.com/");
             String product_name = page.locator("//*[@id='1']/p").textContent();
