@@ -1,20 +1,14 @@
-##  java-playwright-browserstack
+#  java-playwright-browserstack
+This repo contains samples for running junit-5 playwright tests on browserstack.
 
 ## Setup
-* Clone the repo
+* Clone the repo `git clone -b sdk https://github.com/browserstack/java-playwright-browserstack.git`
 * Install dependencies `mvn install`
-* Update credentials in the `/src/test/resources/*.conf.json` file with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings).
-* For parallel testing, control the concurrency by setting the value for `parallel.count`. Junit 5 uses the following properties for parallelism:
-  ```
-  junit.jupiter.execution.parallel.enabled = true
-  junit.jupiter.execution.parallel.mode.default = concurrent
-  junit.jupiter.execution.parallel.config.strategy=fixed
-  junit.jupiter.execution.parallel.config.fixed.parallelism=${parallel.count}
-  ```
-## Running your tests
-* To run a sample tests, run `mvn test -P sample-test`
-* To run sample tests with local, run `mvn test -P sample-local-test`
-* Update `<parallel.count>` in `pom.xml` to set the number of parallel threads 
+* Update credentials in the `browserstack.yml` file with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings).
+
+## Running tests:
+* To run a sample tests, run `mvn test -P sample-test`.
+* To run local tests, run `mvn test -P sample-local-test`.
 
 Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
