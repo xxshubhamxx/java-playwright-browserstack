@@ -3,5 +3,5 @@
 .project
 .settings/
 target/
-browserstack.err
 logs/
+browserstack.err
