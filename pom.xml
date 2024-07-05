@@ -16,7 +16,8 @@
         <browserstack-local-java>1.0.6</browserstack-local-java>
         <httpclient>4.5.13</httpclient>
         <parallel.count>3</parallel.count>
-        <tests.single>**/tests.SampleTest.java</tests.single>
+        <tests.sample>**/tests.SampleTest.java</tests.sample>
+        <tests.local>**/tests.LocalTest.java</tests.local>
     </properties>
     <dependencies>
         <dependency>
@@ -34,7 +35,7 @@
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
-            <version>1.19.0</version>
+            <version>LATEST</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -63,7 +64,48 @@
             <artifactId>httpclient</artifactId>
             <version>${httpclient}</version>
         </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-java-sdk</artifactId>
+            <version>LATEST</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>getClasspathFilenames</id>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin}</version>
+                <configuration>
+                    <includes>
+                        <include>${tests.sample}</include>
+                    </includes>
+                    <argLine>
+                        -javaagent:${com.browserstack:browserstack-java-sdk:jar}
+                    </argLine>
+                    <testFailureIgnore>false</testFailureIgnore>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <profiles>
         <profile>
             <id>sample-local-test</id>
@@ -75,21 +117,12 @@
                         <version>3.0.0-M5</version>
                         <configuration>
                             <includes>
-                                <include>${tests.single}</include>
+                                <include>${tests.local}</include>
                             </includes>
-                            <systemPropertyVariables>
-                                <config>browserstack.conf.json</config>
-                                <local>true</local>
-                            </systemPropertyVariables>
-                            <properties>
-                                <configurationParameters>
-                                    junit.jupiter.execution.parallel.enabled = true
-                                    junit.jupiter.execution.parallel.mode.default = concurrent
-                                    junit.jupiter.execution.parallel.config.strategy=fixed
-                                    junit.jupiter.execution.parallel.config.fixed.parallelism=${parallel.count}
-                                </configurationParameters>
-                            </properties>
                             <testFailureIgnore>false</testFailureIgnore>
+                            <argLine>
+                                -javaagent:${com.browserstack:browserstack-java-sdk:jar}
+                            </argLine>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -105,21 +138,12 @@
                         <version>3.0.0-M5</version>
                         <configuration>
                             <includes>
-                                <include>${tests.single}</include>
+                                <include>${tests.sample}</include>
                             </includes>
-                            <systemPropertyVariables>
-                                <config>browserstack.conf.json</config>
-                                <local>false</local>
-                            </systemPropertyVariables>
-                            <properties>
-                                <configurationParameters>
-                                    junit.jupiter.execution.parallel.enabled = true
-                                    junit.jupiter.execution.parallel.mode.default = concurrent
-                                    junit.jupiter.execution.parallel.config.strategy=fixed
-                                    junit.jupiter.execution.parallel.config.fixed.parallelism=${parallel.count}
-                                </configurationParameters>
-                            </properties>
                             <testFailureIgnore>false</testFailureIgnore>
+                            <argLine>
+                                -javaagent:${com.browserstack:browserstack-java-sdk:jar}
+                            </argLine>
                         </configuration>
                     </plugin>
                 </plugins>
